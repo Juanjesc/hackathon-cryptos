@@ -1,0 +1,144 @@
+@use '../../../../scss/variables' as v;
+@use '../../../../scss/mixins' as m;
+.container_form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: .5rem auto;
+
+  @media (min-width: 821px) {
+    width: 400px;
+    min-height: 70vh;
+    padding: 0;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 4rem auto;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    width: 100%;
+    font-family: v.$text_main;
+    //box-shadow: 0px 0px 2px black;
+    //background-color: black;
+    color: v.$negro;
+    border-radius: 5px;
+    background-color: v.$color_mobile_form;
+    
+    
+    @media (min-width:821px){
+      background-color: v.$color_body;
+      backdrop-filter: blur(20px);
+        //box-shadow: 1px 1px 5px white;
+
+    }
+    .title {
+      text-align: center;
+    }
+    .iconoLogin{
+        width: 100%;
+        align-items: center;
+        margin: .5rem 0;
+        display: flex;
+        gap: 2rem;
+
+        .icono{
+            font-size: 3rem;
+            position: relative;
+            top: -4px;
+            color: v.$negro;
+        }
+    }
+  }
+  .campo {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin: 0.5rem 0;
+    width: 100%;
+    input {
+      width: 90%;
+      padding: 1rem;
+      box-shadow: 2px 2px 5px v.$negro;
+      border: none;
+      background-color: transparent;
+      color: v.$negro;
+      &::placeholder{
+        color: v.$parrafos;
+        font-family: v.$text_main;
+      }
+    }
+
+    .botonSubmit {
+      @include m.btn-submit(v.$blanco, v.$color_header, v.$color_header, v.$blanco);
+      margin-top: 1rem;
+    }
+  }
+  .campoBoton {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width: 821px){
+
+  .box:before {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(-45deg, #ec0000 0%, #000000 100% );
+      transform: translate3d(30px, 33px, 0) scale(0.84);
+      filter: blur(15px);
+      opacity: var(0.27);
+      transition: opacity 0.3s;
+      border-radius: inherit;
+  }
+  .box::after {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: inherit;
+      border-radius: inherit;
+  }
+          
+}
+                   
+.validUser{
+  margin-top: 2rem;
+  position: relative;
+  top: 20px;
+  span{
+    
+    color: #00CD8A;
+  }
+}
+.infoRegister_container{
+  margin: 2rem 0 0 0;
+  p{
+    display: flex;
+    gap: .4rem;
+    text-align: center;
+    justify-content: center;
+    margin: 0;
+
+    button{
+      color: v.$color_header;
+      font-weight: bold;
+      cursor: pointer;
+      background: none;
+      border: none;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-family: v.$text_main;
+    }
+  }
+}       

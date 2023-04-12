@@ -1,0 +1,39 @@
+@use "./variables" as v;
+
+@mixin btn-icons($color, $background-color, $color-hover, $background-hover) {
+  border: none;
+  background-color: $background-color;
+  color: $color;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+  outline: none;
+  width: max-content;
+  padding: 0.2rem 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-weight: 500;
+  &:hover {
+    background-color: $background-hover;
+    border-radius: 10px;
+    color: $color-hover;
+    border: none;
+  }
+}
+@mixin btn-submit($color, $background-color, $color-hover, $background-hover) {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: none;
+  box-shadow: 1px 1px 5px v.$negro;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+  background-color: $background-color;
+  color: $color;
+  font-family: v.$text_main;
+  &:hover {
+    background-color: $background-hover;
+    color: $color-hover;
+  }
+}

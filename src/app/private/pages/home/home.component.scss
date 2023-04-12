@@ -1,0 +1,124 @@
+@use '../../../scss/mixins' as m;
+@use '../../../scss/variables' as v;
+table {
+  width: 100%;
+  background-color: v.$color_body;
+  position: relative;
+  font-family: montserrat;
+  border-top-right-radius: 50px;
+
+  
+}
+.mat-elevation-z8 {
+  margin: 0 auto;
+  width: 95%;
+  @media (min-width: 768px) {
+    width: 80%;
+  }
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 20%;
+  color: v.$color-header;
+  font-weight: bold;
+
+  &:first-of-type {
+    width: 15%;
+  }
+}
+.containerPagina {
+  //backdrop-filter: blur(10px);
+  width: 80%;
+  margin: 0 auto;
+  padding: 1rem;
+  margin-top: 4rem;
+}
+.containerFilter {
+  width: 60%;
+  margin: 0 auto 2rem auto;
+  box-shadow: 1px 1px 5px v.$negro;
+  background-color: v.$color_mobile_form;
+  padding: .3rem 1rem;
+}
+.mat-paginator {
+  background-color: v.$color_mobile_form;
+  color: v.$negro;
+  font-family: montserrat;
+}
+::ng-deep.mat-select-value {
+  color: v.$negro;
+  font-family: montserrat;
+}
+::ng-deep.mat-select-arrow{
+  color: v.$negro !important;
+}
+
+::ng-deep.mat-paginator-icon{
+  color: v.$negro
+}
+::ng-deep.mat-input-element{
+  color: #00cd8a !important;
+  caret-color: v.$negro !important;
+  &::placeholder{
+    color: v.$negro;
+  }
+}
+::ng-deep.mat-form-field-appearance-legacy .mat-form-field-label{
+  color: v.$negro;
+
+}
+::ng-deep.mat-form-field-appearance-legacy .mat-form-field-underline{
+  background-color: v.$negro;
+}
+.info p{
+  color: red;
+  font-size: 15px;
+  width: 80%;
+  margin: .5rem auto;
+}
+.box:before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(-45deg, v.$color-header 0%, v.$negro 100% );
+    transform: translate3d(40px, 60px, 0) scale(0.96);
+    filter: blur(25px);
+    opacity: var(0.7);
+    transition: opacity 0.3s;
+    border-radius: inherit;
+}
+.box::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+    border-radius: inherit;
+}
+           
+.flexActions{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  button{
+    @include m.btn-submit(v.$blanco, v.$color-header, v.$color-header, v.$blanco);
+    width: 110px;
+  }
+}
+.imgIcon{
+  width: 40px;
+  height: 40px;
+}

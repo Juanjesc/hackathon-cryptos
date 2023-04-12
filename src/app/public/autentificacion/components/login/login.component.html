@@ -1,0 +1,40 @@
+<div class="container_form">
+  <form action="" class="form box">
+      <div class="iconoLogin">
+        <span><mat-icon class="icono">account_circle</mat-icon></span>
+        <h2 class="title">Log In</h2>
+    </div>
+    <div class="campo">
+      <label for="inicio">Nombre de usuario:</label>
+      <input
+        type="text"
+        name="nombre_usuario"
+        id="inicio"
+        class="inicioInput"
+        placeholder="Introduzca su nombre de usuario"
+        required
+        [(ngModel)]="usernameInput"
+      />
+    </div>
+    <div class="campo">
+      <label for="password">Contraseña:</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        class="inicioInput"
+        placeholder="Introduzca su contraseña"
+        required
+        [(ngModel)]="passwordInput"
+      />
+    </div>
+    <div class="campo campoBoton">
+      <button (click)="onSubmit($event)" type="submit" class="botonSubmit">
+        Login
+      </button>
+    </div>
+    <div class="infoRegister_container">
+      <p>¿Primera vez aquí?<button class="button_register" (click)="openDialog()">Regístrate free</button></p>
+    </div>
+  </form>
+</div>

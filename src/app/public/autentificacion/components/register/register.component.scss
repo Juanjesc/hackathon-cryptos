@@ -1,0 +1,136 @@
+@use "../../../../scss/variables" as v;
+@use "../../../../scss/mixins" as m;
+.container_form {
+  width: 98%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem 0 1rem;
+    width: 100%;
+    font-family: montserrat;
+    border-radius: 5px;
+    box-shadow: 0 0 3px v.$negro;
+    color: v.$negro;
+    //backdrop-filter: blur(20px);
+    background-color: v.$color_mobile_form;
+    position: relative;
+
+    @media (min-width: 768px) {
+      box-shadow: 1px 1px 5px v.$negro;
+    }
+    .title {
+      text-align: center;
+    }
+    .iconoLogin {
+      width: 100%;
+      align-items: center;
+      margin: 0.5rem 0;
+      display: flex;
+      gap: 2rem;
+
+      .icono {
+        font-size: 3rem;
+        position: relative;
+        top: -4px;
+        color: v.$negro;
+      }
+    }
+    .flex-errors{
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      margin: 0 auto;
+      .error-message {
+        margin-top: 0.3rem;
+        padding: 0.4rem;
+        position: relative;
+        width: max-content;
+        right: 0;
+        p {
+          font-family: v.$text_main;
+          font-size: 14px;
+          color: v.$color-header;
+          margin: 0;
+          font-weight: bold;
+           transition: all .3s ease-in;
+        }
+      }
+    }
+  }
+  .campo {
+    display: flex;
+    gap: 1rem;
+    margin: 0.5rem 0;
+    width: 100%;
+    flex-direction: column;
+    label {
+      font-size: 14px;
+      span {
+        color: v.$color_header;
+      }
+    }
+    @media (min-width: 1000px) {
+      align-items: center;
+      flex-direction: row;
+      label {
+        flex-basis: 10rem;
+      }
+    }
+    input {
+      padding: 1rem;
+      box-shadow: 2px 2px 5px v.$negro;
+      border: none;
+      background-color: transparent;
+      color: v.$negro;
+      @media (min-width: 769px) {
+        width: 100%;
+      }
+      &::placeholder {
+        color: v.$parrafos;
+        font-family: v.$text_main;
+      }
+    }
+    .botonSubmit {
+      @include m.btn-submit(
+        v.$blanco,
+        v.$color_header,
+        v.$color_header,
+        v.$blanco
+      );
+      margin: 0.5rem 0;
+      @media (max-width: 600px) {
+        &:last-of-type {
+          margin: 0 0 0.5rem 0;
+        }
+      }
+    }
+  }
+  .campoBoton {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+  }
+}
+
+.validUser {
+  margin-top: 2rem;
+  position: relative;
+  top: 20px;
+  span {
+    color: #00cd8a;
+  }
+}
+::ng-deep.mat-dialog-container {
+  padding: 10px;
+}

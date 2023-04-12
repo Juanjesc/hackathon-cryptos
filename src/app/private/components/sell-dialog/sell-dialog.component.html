@@ -1,0 +1,38 @@
+<div class="container-form">
+    <form class="form" [formGroup]="sellForm">
+        <h3>{{data.cryptoname}} - {{data.cryptoasset}}</h3>
+        <div class="info-crypto-container">
+            <p>Tu depósito actual es de: <span>{{depositUser}} €</span></p>
+            <p *ngIf="cryptoUser !== null && cryptoUser.amount > 0">Actualmente dispones de: <span>{{cryptoUser.amount}}</span> {{data.cryptoasset}}</p>
+            <p>El precio actual de {{data.cryptoasset}} es de: <span>{{data.cryptovalue}}</span>€</p>
+          </div>
+          <div class="campo">
+            <label for="buy">Indique una cantidad de Venta ↓</label>
+            <input type="number" inputmode="decimal" formControlName="sell" required name="sell" id="sell" placeholder="Seleccione una cantidad" class="inputDialog">
+          </div>
+          <div class="flex-errors">
+            <div
+            *ngIf="
+            sellForm.controls['sell'].invalid &&
+            (sellForm.controls['sell'].dirty ||
+            sellForm.controls['sell'].touched)
+            "
+            class="error-message"
+            >
+            <div *ngIf="sellForm.controls['sell'].errors?.required">
+              <p>* La cantidad es requerida</p>
+            </div>
+        <div *ngIf="sellForm.controls['sell'].errors?.min">
+          <p>* El mínimo es 0,1 {{data.cryptoasset}}</p>
+        </div>
+        <div *ngIf="sellForm.controls['sell'].errors?.pattern">
+          <p>* Introduce carácteres válidos</p>
+        </div>
+      </div>
+    </div>
+    <app-spinner *ngIf="showSpinner"></app-spinner>
+    <p *ngIf="!cryptoUser || cryptoUser.amount <= 0" class="cursive-info">* Actualmente no dispones de ninguna cantidad de {{data.cryptoasset}}, por lo que Vender está deshabilitado</p>
+    <button class="btn-sell" (click)="sellAmount($event)" [disabled]="(!cryptoUser) || (cryptoUser.amount <= 0)">Vender</button>
+    <button class="btn-sell" (click)="closeDialog()">Cancelar</button>
+  </form>
+</div>

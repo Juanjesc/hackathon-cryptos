@@ -1,0 +1,227 @@
+<div class="container_form">
+  <form
+    action=""
+    class="form box"
+    [formGroup]="registerForm"
+  >
+    <div class="iconoLogin">
+      <span><mat-icon class="icono">account_circle</mat-icon></span>
+      <h2 class="title">Registro</h2>
+    </div>
+    <div class="campo">
+      <label for="username"><span>*</span>Nombre de usuario:</label>
+      <input
+        type="text"
+        formControlName="username"
+        name="username"
+        id="username"
+        class="inicioInput"
+        placeholder="Introduzca su nombre de usuario"
+        required
+      />
+    </div>
+    <div class="flex-errors">
+      <div
+        *ngIf="
+          registerForm.controls['username'].invalid &&
+          (registerForm.controls['username'].dirty ||
+            registerForm.controls['username'].touched)
+        "
+        class="error-message"
+      >
+        <div *ngIf="registerForm.controls['username'].errors?.required">
+          <p>*El nombre de usuario es requerido.</p>
+        </div>
+        <div *ngIf="registerForm.controls['username'].errors?.maxlength">
+          <p>*El nombre de usuario no puede tener más de 50 caracteres.</p>
+        </div>
+        <div *ngIf="registerForm.controls['username'].errors?.minlength">
+          <p>*El nombre de usuario no puede tener menos de 3 caracteres.</p>
+        </div>
+      </div>
+    </div>
+    <div class="campo">
+      <label for="fullname"><span>*</span>Nombre Completo:</label>
+      <input
+        type="text"
+        name="fullname"
+        formControlName="fullname"
+        id="fullname"
+        class="inicioInput"
+        placeholder="Introduzca su nombre completo"
+        required
+      />
+    </div>
+    <div class="flex-errors">
+      <div
+        *ngIf="
+          registerForm.controls['fullname'].invalid &&
+          (registerForm.controls['fullname'].dirty ||
+            registerForm.controls['fullname'].touched)
+        "
+        class="error-message"
+      >
+        <div *ngIf="registerForm.controls['fullname'].errors?.required">
+          <p>*El nombre completo es requerido.</p>
+        </div>
+        <div *ngIf="registerForm.controls['fullname'].errors?.maxlength">
+          <p>*El nombre completo no puede tener más de 75 caracteres.</p>
+        </div>
+        <div *ngIf="registerForm.controls['fullname'].errors?.minlength">
+          <p>*El nombre completo no puede tener menos de 3 caracteres.</p>
+        </div>
+      </div>
+    </div>
+    <div class="campo">
+      <label for="correo"><span>*</span>Email:</label>
+      <input
+        type="email"
+        name="correo"
+        formControlName="email"
+        id="correo"
+        class="inicioInput"
+        placeholder="Introduzca su correo electrónico"
+        required
+      />
+    </div>
+    <div class="flex-errors">
+      <div
+        *ngIf="
+          registerForm.controls['email'].invalid &&
+          (registerForm.controls['email'].dirty ||
+            registerForm.controls['email'].touched)
+        "
+        class="error-message"
+      >
+        <div *ngIf="registerForm.controls['email'].errors?.required">
+          <p>*El email es requerido.</p>
+        </div>
+        <div *ngIf="registerForm.controls['email'].errors?.pattern">
+          <p>*El email no es correcto, asegúrese de que es un email válido.</p>
+        </div>
+      </div>
+    </div>
+    <div class="campo">
+      <label for="password"><span>*</span>Contraseña:</label>
+      <input
+        type="password"
+        name="password"
+        formControlName="password"
+        id="password"
+        class="inicioInput"
+        placeholder="Introduzca su contraseña"
+        minlength="6"
+        required
+      />
+    </div>
+    <div class="flex-errors">
+      <div
+        *ngIf="
+          registerForm.controls['password'].invalid &&
+          (registerForm.controls['password'].dirty ||
+            registerForm.controls['password'].touched)
+        "
+        class="error-message"
+      >
+        <div *ngIf="registerForm.controls['password'].errors?.required">
+          <p>*La contraseña es requerida</p>
+        </div>
+        <div *ngIf="registerForm.controls['password'].errors?.pattern">
+          <p>*La contraseña debe incluir 1 mayúscula, 1 minúscula y tener un mínimo de 6 caracteres</p>
+        </div>
+      </div>
+    </div>
+    <div class="campo">
+      <label for="password"><span>*</span>Confirmar contraseña:</label>
+      <input
+        type="password"
+        name="confirmpassword"
+        formControlName="confirmpassword"
+        id="confirmpassword"
+        class="inicioInput"
+        placeholder="Confirme su contraseña"
+        minlength="6"
+        required
+      />
+    </div>
+    <div class="flex-errors">
+      <div
+        *ngIf="
+          registerForm.controls['confirmpassword'].invalid &&
+          (registerForm.controls['confirmpassword'].dirty ||
+            registerForm.controls['confirmpassword'].touched)
+        "
+        class="error-message"
+      >
+        <div *ngIf="registerForm.controls['confirmpassword'].errors?.required">
+          <p>*La confirmación de contraseña es requerida</p>
+        </div>
+        <div *ngIf="registerForm.controls['confirmpassword'].errors?.MustMatch">
+          <p>*Las contraseñas no coinciden, asegúrate de que coincidan.</p>
+        </div>
+      </div>
+    </div>
+    <div class="campo">
+      <label for="deposit"><span>*</span>Depósito:</label>
+      <input
+        type="number"
+        name="deposit"
+        formControlName="deposit"
+        id="deposit"
+        class="inicioInput"
+        placeholder="Introduzca su depósito"
+        required
+      />
+    </div>
+    <div class="flex-errors">
+      <div
+        *ngIf="
+          registerForm.controls['deposit'].invalid &&
+          (registerForm.controls['deposit'].dirty ||
+            registerForm.controls['deposit'].touched)
+        "
+        class="error-message"
+      >
+        <div *ngIf="registerForm.controls['deposit'].errors?.required">
+          <p>*El depósito es requerido.</p>
+        </div>
+      </div>
+    </div>
+    <div class="campo">
+      <label for="birthdate"><span>*</span>Fecha de nacimiento:</label>
+      <input
+        type="date"
+        name="birthdate"
+        formControlName="birthdate"
+        id="birthdate"
+        class="inicioInput"
+        max={{minYear}}
+        required
+      />
+    </div>
+    <div class="flex-errors">
+      <div
+        *ngIf="
+          registerForm.controls['birthdate'].invalid &&
+          (registerForm.controls['birthdate'].dirty ||
+            registerForm.controls['birthdate'].touched)
+        "
+        class="error-message"
+      >
+        <div *ngIf="registerForm.controls['birthdate'].errors?.required">
+          <p>* La fecha de nacimiento es requerida.</p>
+        </div>
+        <div *ngIf="registerForm.controls['birthdate'].errors?.max">
+          <p>* Debes ser mayor de 18 años para poder registrarte.</p>
+        </div>
+      </div>
+    </div>
+    <div class="campo campoBoton">
+      <app-spinner *ngIf="showSpinner"></app-spinner>
+      <button (click)="onSubmit($event)" type="submit" class="botonSubmit">Registrarme</button>
+      <button (click)="closeModal()" type="button" class="botonSubmit">
+        Volver
+      </button>
+    </div>
+  </form>
+</div>

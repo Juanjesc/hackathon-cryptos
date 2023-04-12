@@ -1,0 +1,27 @@
+<header class="header">
+  <div class="container_header_content">
+    <div class="contentHeader">
+      <div class="logo">
+        <img src="../../assets/img/crypthonwhite.png" alt="logo" />
+      </div>
+      <div *ngIf="getInfoUserHeader()">
+        <div class="info_user_container">
+          <p class="title">Bienvenid@: {{ userInfo.username }}</p>
+          <p class="deposit">Tu depósito: <span>{{ userInfo.deposit}}</span>€</p>
+        </div>
+      </div>
+      <div *ngIf="logueado()">
+        <button (click)="clearSesionStorage()" class="btn_session">
+          <span><mat-icon class="icono">logout</mat-icon></span>Cerrar Sesión
+        </button>
+      </div>
+      <div *ngIf="!logueado()">
+        <button (click)="toLogin()" class="btn_session">
+          <span
+            ><mat-icon class="icono">account_circle</mat-icon></span>Iniciar
+            Sesión
+        </button>
+      </div>
+    </div>
+  </div>
+</header>

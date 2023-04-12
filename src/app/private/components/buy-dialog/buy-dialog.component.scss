@@ -1,0 +1,80 @@
+@use "../../../scss/variables" as v;
+@use "../../../scss/mixins" as m;
+
+.container-form {
+  width: 400px;
+  background-color: v.$color_body;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 0 5px v.$parrafos;
+  @media(max-width:500px){
+    width: 90%;
+  }
+  .form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      font-family: v.$text_main;
+      font-weight: bold;
+      margin: 0 0 1rem 0;
+    }
+    .info-crypto-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      p {
+        font-family: v.$text_main;
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+    .campo {
+      display: flex;
+      flex-direction: column;
+      label {
+        font-family: v.$text_main;
+      }
+      .inputDialog {
+        padding: 0.6rem;
+        margin: 0.5rem 0 1rem 0;
+        outline: none;
+        border: none;
+        box-shadow: 2px 2px 5px v.$negro;
+      }
+    }
+    .flex-errors {
+      width: 100%;
+      position: relative;
+      top: -5px;
+      .error-message {
+        
+        p {
+          font-family: v.$text_main;
+          font-size: 14px;
+          color: v.$color-header;
+          margin: 0;
+          font-weight: bold;
+          transition: all 0.3s ease-in;
+
+        }
+      }
+    }
+    .btn-buy {
+      @include m.btn-submit(
+        v.$blanco,
+        v.$color_header,
+        v.$color_header,
+        v.$blanco
+      );
+      &:last-of-type {
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+::ng-deep.mat-dialog-container {
+  padding: 10px !important;
+}

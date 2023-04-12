@@ -1,0 +1,39 @@
+<div class="container-form">
+    <form class="form" [formGroup]="buyForm">
+        <h3>{{data.cryptoname}} - {{data.cryptoasset}}</h3>
+        <div class="info-crypto-container">
+            <p>Tu depósito actual es de: <span>{{depositUser}} €</span></p>
+            <p *ngIf="cryptoUser !== null && cryptoUser.amount > 0">Actualmente dispones de: <span>{{cryptoUser.amount}}</span> {{data.cryptoasset}}</p>
+            <p *ngIf="!cryptoUser || cryptoUser.amount <= 0">*Actualmente no dispones de ninguna cantidad de {{data.cryptoasset}}</p>
+            <p>El precio actual de {{data.cryptoasset}} es de: <span>{{data.cryptovalue}}</span>€ y dispones de un stock total de <span>{{data.cryptostock}}</span> {{data.cryptoasset}}</p>
+        </div>
+        <div class="campo">
+            <label for="buy">Indique una cantidad de compra ↓</label>
+            <input type="number" required name="buy" id="buy"
+            formControlName="buy" inputmode="decimal" placeholder="Seleccione una cantidad" class="inputDialog">
+        </div>
+        <div class="flex-errors">
+      <div
+        *ngIf="
+          buyForm.controls['buy'].invalid &&
+          (buyForm.controls['buy'].dirty ||
+            buyForm.controls['buy'].touched)
+        "
+        class="error-message"
+      >
+        <div *ngIf="buyForm.controls['buy'].errors?.required">
+          <p>* La cantidad es requerida</p>
+        </div>
+        <div *ngIf="buyForm.controls['buy'].errors?.min">
+          <p>* El mínimo es 0.01 {{data.cryptoasset}}</p>
+        </div>
+        <div *ngIf="buyForm.controls['buy'].errors?.pattern">
+          <p>* Introduce carácteres válidos</p>
+        </div>
+      </div>
+    </div>
+        <app-spinner *ngIf="showSpinner"></app-spinner>
+        <button class="btn-buy" (click)="buyAmount($event)">Comprar</button>
+        <button class="btn-buy" (click)="closeDialog()">Cancelar</button>
+    </form>
+</div>

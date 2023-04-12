@@ -1,0 +1,31 @@
+@use '../../scss/variables' as v;
+@use '../../scss/mixins' as m;
+.container-page{
+    display: flex;
+    flex-direction: column;
+    .container-img{
+        width: 45%;
+        margin: 0 auto;
+        @media(min-width: 769px){
+            width: 25%;
+        }
+        img{
+            width: 100%;
+        }
+    }
+    h2{
+        text-align: center;
+        margin-top: 4rem;
+        font-size: 1.8rem;
+        font-family: v.$text_secondary;
+        padding: 0 2rem;
+        @media(max-width:500px){
+            font-size: 1.5rem;
+        }
+    }
+    .btn-return{
+        @include m.btn-submit(v.$blanco, v.$color_header, v.$color_header, v.$blanco);
+        width: max-content;
+        margin: 2rem auto 0 auto;
+    }
+}
