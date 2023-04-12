@@ -18,8 +18,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {}
   getInfoUserHeader() {
-    // this.username = sessionStorage.getItem('username');
-    // return this.username?.toLowerCase();
     let userInfoString = sessionStorage.getItem('user_info');
     if (userInfoString !== null){
       this.userInfo = JSON.parse(userInfoString) as UserInfo
@@ -28,7 +26,6 @@ export class HeaderComponent implements OnInit {
     else{
       return null
     }
-
   }
   getDepositUser() {
     

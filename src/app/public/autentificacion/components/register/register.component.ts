@@ -111,17 +111,17 @@ export class RegisterComponent implements OnInit {
         );
         setTimeout(() => {
           this.showSpinner = false;
+          this.closeModal();
+          this._snackBar.open(
+            '*El registro de usuario se ha completado con éxito ✅',
+            'Cerrar',
+            {
+              horizontalPosition: 'center',
+              verticalPosition: 'bottom',
+              duration: 5000,
+            }
+          );
         }, 3000);
-        this.closeModal();
-        this._snackBar.open(
-          '*El registro de usuario se ha completado con éxito ✅',
-          'Cerrar',
-          {
-            horizontalPosition: 'center',
-            verticalPosition: 'bottom',
-            duration: 5000,
-          }
-        );
       } catch (error) {
         console.log(error);
       }
@@ -130,6 +130,15 @@ export class RegisterComponent implements OnInit {
       this.showSpinner = true;
       setTimeout(() => {
         this.showSpinner = false;
+        this._snackBar.open(
+          '*El registro de usuario ha fallado ❌, campos incorrectos o incompletos.',
+          'Cerrar',
+          {
+            horizontalPosition: 'center',
+            verticalPosition: 'bottom',
+            duration: 5000,
+          }
+        );
       }, 3000);
     }
   }
