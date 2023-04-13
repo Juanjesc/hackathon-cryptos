@@ -11,6 +11,7 @@ import { UserInfo } from '../../models/usuario.interface';
 import { UserInfoService } from '../../services/user-info.service';
 import { CryptoData } from '../../models/cryptocurrencies.interface';
 import { TableInfoService } from '../../services/table-info.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -36,6 +37,7 @@ export class HomeComponent implements AfterViewInit {
   userInfo: UserInfo;
   servicioUser: UserInfoService = new UserInfoService(this.http)
   servicioTable: TableInfoService = new TableInfoService(this.http)
+  subscripcion: Subscription = new Subscription()
 
   constructor(
     private http: HttpClient,
@@ -64,7 +66,7 @@ export class HomeComponent implements AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.username = sessionStorage.getItem('username') ?? ''; //esto lo que hace es que si sessionStorage es null ponga por defecto ''
+    this.username = sessionStorage.getItem('username') ?? ''; 
     this.user_id = sessionStorage.getItem('id_usuario') ?? '';
     
     this.servicioUser.getUserInfoHeaderById().subscribe((result)=> {
